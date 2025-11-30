@@ -1,0 +1,19 @@
+{% extends 'delivery/base.html' %}
+
+{% block content %}
+<h1>Checkout</h1>
+<p>Review your order and confirm.</p>
+
+<form method="post">
+    {% csrf_token %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">Payment Information</h5>
+            <p class="card-text">This is a demo app. No payment is actually processed.</p>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-success btn-lg">Place Order</button>
+    <a href="{% url 'cart_detail' %}" class="btn btn-secondary btn-lg">Back to Cart</a>
+</form>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'delivery/base.html' %}
+
+{% block content %}
+<div class="hero text-center">
+    <h1>Welcome to FoodDelivery</h1>
+    <p class="lead">Order from your favorite restaurants</p>
+</div>
+
+<div class="row">
+    {% for restaurant in restaurants %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            {% if restaurant.image %}
+            <img src="{{ restaurant.image.url }}" class="card-img-top" alt="{{ restaurant.name }}">
+            {% else %}
+            <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center text-white">
+                No Image
+            </div>
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ restaurant.name }}</h5>
+                <p class="card-text">{{ restaurant.description|truncatewords:20 }}</p>
+                <a href="{% url 'restaurant_detail' restaurant.pk %}" class="btn btn-primary">View Menu</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="col-12 text-center">
+        <p>No restaurants available.</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

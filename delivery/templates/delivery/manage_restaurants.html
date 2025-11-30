@@ -1,0 +1,49 @@
+{% extends 'delivery/base.html' %}
+
+{% block content %}
+<h1>Manage Restaurants</h1>
+
+{% if restaurants %}
+{% for restaurant in restaurants %}
+<div class="card mb-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h2 class="h5 mb-0">{{ restaurant.name }}</h2>
+        <a href="{% url 'add_menu_item' restaurant.pk %}" class="btn btn-primary btn-sm">Add Menu Item</a>
+    </div>
+    <div class="card-body">
+        <p>{{ restaurant.description }}</p>
+        <p class="text-muted">{{ restaurant.address }}</p>
+
+        <h3 class="h6 mt-3">Menu Items</h3>
+        {% if restaurant.menu_items.all %}
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in restaurant.menu_items.all %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>${{ item.price }}</td>
+                    <td>
+                        <a href="{% url 'edit_menu_item' item.pk %}" class="btn btn-secondary btn-sm">Edit</a>
+                        <a href="{% url 'delete_menu_item' item.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="text-muted">No menu items yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endfor %}
+{% else %}
+<p>You don't own any restaurants yet.</p>
+{% endif %}
+{% endblock %}

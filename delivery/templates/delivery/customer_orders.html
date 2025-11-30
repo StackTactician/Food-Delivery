@@ -1,0 +1,57 @@
+{% extends 'delivery/base.html' %}
+
+{% block content %}
+<h1>My Orders</h1>
+
+{% if orders %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.created_at|date:"M d, Y H:i" }}</td>
+            <td>${{ order.total_price }}</td>
+            <td>
+                <span
+                    class="badge {% if order.status == 'Delivered' %}bg-success{% elif order.status == 'Delivering' %}bg-warning{% else %}bg-secondary{% endif %}">
+                    {{ order.status }}
+                </span>
+                {% if order.status == 'Delivering' %}
+                <br>
+                <small>
+                    Driver Confirmed: {% if order.driver_confirmed %}✅{% else %}❌{% endif %}
+                    <br>
+                    You Confirmed: {% if order.customer_confirmed %}✅{% else %}❌{% endif %}
+                </small>
+                {% endif %}
+            </td>
+            <td>
+                {% if order.status == 'Delivering' and not order.customer_confirmed %}
+                <form action="{% url 'confirm_delivery_customer' order.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-success btn-sm">Confirm Receipt</button>
+                </form>
+                {% elif order.status == 'Delivered' %}
+                Completed
+                {% else %}
+                -
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>You haven't placed any orders yet.</p>
+<a href="{% url 'restaurant_list' %}" class="btn btn-primary">Browse Restaurants</a>
+{% endif %}
+{% endblock %}

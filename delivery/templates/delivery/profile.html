@@ -1,0 +1,98 @@
+{% extends 'delivery/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h3 class="mb-0">Edit Profile</h3>
+            </div>
+            <div class="card-body">
+                <div class="text-center mb-4">
+                    {% if user.userprofile.profile_photo %}
+                    <img src="{{ user.userprofile.profile_photo.url }}" class="rounded-circle"
+                        style="width: 150px; height: 150px; object-fit: cover;">
+                    {% else %}
+                    <div class="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center mx-auto"
+                        style="width: 150px; height: 150px; font-size: 3rem;">
+                        {{ user.username|make_list|first|upper }}
+                    </div>
+                    {% endif %}
+                </div>
+
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    {% if form.errors %}
+                    <div class="alert alert-danger">
+                        Please correct the errors below.
+                    </div>
+                    {% endif %}
+
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                        <div class="text-danger">{{ form.email.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Phone Number</label>
+                        {{ form.phone_number }}
+                        {% if form.phone_number.errors %}
+                        <div class="text-danger">{{ form.phone_number.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Profile Photo</label>
+                        {{ form.profile_photo }}
+                    </div>
+
+                    {% if user.userprofile.role == 'Customer' %}
+                    <div class="mb-3">
+                        <label class="form-label">Delivery Address</label>
+                        {{ form.address }}
+                    </div>
+                    {% endif %}
+
+                    {% if user.userprofile.role == 'Driver' %}
+                    <h5 class="mt-4">Driver Details</h5>
+                    <hr>
+                    <div class="mb-3">
+                        <label class="form-label">Vehicle Type</label>
+                        {{ form.vehicle_type }}
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Vehicle Plate</label>
+                        {{ form.vehicle_plate }}
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">License Number</label>
+                        {{ form.license_number }}
+                    </div>
+                    {% endif %}
+
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Save Changes</button>
+                        <a href="{% if user.userprofile.role == 'Driver' %}{% url 'driver_dashboard' %}{% elif user.userprofile.role == 'Customer' %}{% url 'customer_dashboard' %}{% else %}{% url 'restaurant_list' %}{% endif %}"
+                            class="btn btn-outline-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Simple script to add bootstrap classes to form fields
+    document.querySelectorAll('input, select, textarea').forEach(function (input) {
+        if (input.type !== 'checkbox' && input.type !== 'file') {
+            input.classList.add('form-control');
+        } else if (input.type === 'file') {
+            input.classList.add('form-control');
+        }
+    });
+</script>
+{% endblock %}

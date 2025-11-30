@@ -1,0 +1,141 @@
+{% extends 'delivery/base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">Register</div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data" id="registrationForm">
+                    {% csrf_token %}
+
+                    <!-- Common Fields -->
+                    <div class="mb-3">
+                        <label for="{{ form.role.id_for_label }}" class="form-label">I am a...</label>
+                        {{ form.role }}
+                        {{ form.role.errors }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="{{ form.username.id_for_label }}" class="form-label">Username</label>
+                        {{ form.username }}
+                        {{ form.username.errors }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
+                        {{ form.email }}
+                        {{ form.email.errors }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="{{ form.password.id_for_label }}" class="form-label">Password</label>
+                        {{ form.password }}
+                        {{ form.password.errors }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="{{ form.phone_number.id_for_label }}" class="form-label">Phone Number</label>
+                        {{ form.phone_number }}
+                        {{ form.phone_number.errors }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="{{ form.profile_photo.id_for_label }}" class="form-label">Profile Photo
+                            (Optional)</label>
+                        {{ form.profile_photo }}
+                        {{ form.profile_photo.errors }}
+                    </div>
+
+                    <!-- Customer Specific Fields -->
+                    <div id="customerFields" style="display: none;">
+                        <h5 class="mt-4">Customer Details</h5>
+                        <div class="mb-3">
+                            <label for="{{ form.address.id_for_label }}" class="form-label">Home / Delivery
+                                Address</label>
+                            {{ form.address }}
+                            {{ form.address.errors }}
+                        </div>
+                    </div>
+
+                    <!-- Driver Specific Fields -->
+                    <div id="driverFields" style="display: none;">
+                        <h5 class="mt-4">Driver Details</h5>
+                        <div class="mb-3">
+                            <label for="{{ form.license_number.id_for_label }}" class="form-label">Driver's License
+                                Number</label>
+                            {{ form.license_number }}
+                            {{ form.license_number.errors }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.vehicle_plate.id_for_label }}" class="form-label">Vehicle Plate
+                                Number</label>
+                            {{ form.vehicle_plate }}
+                            {{ form.vehicle_plate.errors }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.vehicle_type.id_for_label }}" class="form-label">Vehicle Type</label>
+                            {{ form.vehicle_type }}
+                            {{ form.vehicle_type.errors }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="{{ form.bank_account.id_for_label }}" class="form-label">Bank Account for
+                                Payouts</label>
+                            {{ form.bank_account }}
+                            {{ form.bank_account.errors }}
+                        </div>
+                        <div class="mb-3 form-check">
+                            {{ form.is_available }}
+                            <label class="form-check-label" for="{{ form.is_available.id_for_label }}">Available for
+                                deliveries immediately?</label>
+                            {{ form.is_available.errors }}
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-3">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const roleSelect = document.getElementById('{{ form.role.id_for_label }}');
+        const customerFields = document.getElementById('customerFields');
+        const driverFields = document.getElementById('driverFields');
+
+        function toggleFields() {
+            const role = roleSelect.value;
+            if (role === 'Customer') {
+                customerFields.style.display = 'block';
+                driverFields.style.display = 'none';
+            } else if (role === 'Driver') {
+                customerFields.style.display = 'none';
+                driverFields.style.display = 'block';
+            } else {
+                customerFields.style.display = 'none';
+                driverFields.style.display = 'none';
+            }
+        }
+
+        // Initial check
+        toggleFields();
+
+        // Listen for changes
+        roleSelect.addEventListener('change', toggleFields);
+
+        // Add Bootstrap classes to inputs
+        const inputs = document.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            if (input.type !== 'checkbox' && input.type !== 'file') {
+                input.classList.add('form-control');
+            } else if (input.type === 'file') {
+                input.classList.add('form-control');
+            } else if (input.type === 'checkbox') {
+                input.classList.add('form-check-input');
+            }
+        });
+    });
+</script>
+{% endblock %}

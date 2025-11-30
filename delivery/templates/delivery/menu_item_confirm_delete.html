@@ -1,0 +1,12 @@
+{% extends 'delivery/base.html' %}
+
+{% block content %}
+<h1>Delete Menu Item</h1>
+<p>Are you sure you want to delete "{{ menu_item.name }}" from {{ menu_item.restaurant.name }}?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a href="{% url 'manage_restaurants' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

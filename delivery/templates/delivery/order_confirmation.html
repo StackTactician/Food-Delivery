@@ -1,0 +1,12 @@
+{% extends 'delivery/base.html' %}
+
+{% block content %}
+<div class="text-center mt-5">
+    <h1 class="text-success">Order Placed Successfully!</h1>
+    <p class="lead">Your order #{{ order.id }} has been received.</p>
+    <p>Status: <strong>{{ order.status }}</strong></p>
+    <p>Total: <strong>${{ order.total_price }}</strong></p>
+
+    <a href="{% url 'restaurant_list' %}" class="btn btn-primary mt-3">Back to Home</a>
+</div>
+{% endblock %}

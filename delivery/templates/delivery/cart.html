@@ -1,0 +1,42 @@
+{% extends 'delivery/base.html' %}
+
+{% block content %}
+<h1>Your Cart</h1>
+
+{% if items %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{ item.menu_item.name }}</td>
+            <td>${{ item.menu_item.price }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>${{ item.subtotal }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-end fw-bold">Total:</td>
+            <td class="fw-bold">${{ total_price }}</td>
+        </tr>
+    </tfoot>
+</table>
+
+<div class="d-flex justify-content-end">
+    <a href="{% url 'restaurant_list' %}" class="btn btn-secondary me-2">Continue Shopping</a>
+    <a href="{% url 'checkout' %}" class="btn btn-success">Proceed to Checkout</a>
+</div>
+{% else %}
+<p>Your cart is empty.</p>
+<a href="{% url 'restaurant_list' %}" class="btn btn-primary">Browse Restaurants</a>
+{% endif %}
+{% endblock %}

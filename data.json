@@ -1,0 +1,285 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$pks1XStHgFuovTwO6iO22c$Au7mV+UnwCuuPrJSlqiOmfUb9A3h7Nhe6tmRvCZqi/U=",
+    "last_login": "2025-11-28T13:00:36.608Z",
+    "is_superuser": true,
+    "username": "moyo",
+    "first_name": "",
+    "last_name": "",
+    "email": "mmmoyosore09@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-11-28T12:24:36.486Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$cjupcLKM2kD8jm3X6wi80U$AKq2+pOLNzVt2I6svkbfUM7Jx7Qbeo71/j2Kpqe/Y8c=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "customer1",
+    "first_name": "",
+    "last_name": "",
+    "email": "c1@test.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-28T12:47:51.532Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$ZCdYIKreeqKQbomjDqiHlg$0GIl+OsKXqxynNHUZO2k7gc52aIv/VxVDNd2J/IAO18=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "driver1",
+    "first_name": "",
+    "last_name": "",
+    "email": "d1@test.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-28T12:47:54.970Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$gOrUO06CAMeEHRiMXhw5iT$Q8v+mOWKe6qs/p0YISVKt5Jks0GqJoHKzoGqOJI8crg=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "danfo",
+    "first_name": "",
+    "last_name": "",
+    "email": "mmmoyosore09@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-28T12:51:56.956Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$eXUryW1rnVi4oEtVGDdwfD$q2oHyS6yRblTP/MBizCNiU1NYrfBIASl1cADaOuTd9U=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "abu",
+    "first_name": "",
+    "last_name": "",
+    "email": "mmustapha243464@stu.ui.edu.ng",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-28T12:53:36.010Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$qrU7gMoOYeRoU5D8qtwNVQ$vrGvbadQzV7Bm/k7bwDqoWHUMN4Y0vF/TxS7BDDLwgM=",
+    "last_login": "2025-11-28T12:56:14.175Z",
+    "is_superuser": false,
+    "username": "abuio",
+    "first_name": "",
+    "last_name": "",
+    "email": "mmustapha243464@stu.ui.edu.ng",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-28T12:56:09.844Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$FymxsVm5PqrnOOl6RoZs5Q$Ojqm3NHBMELydrMOJwXiHIJVn98/kkiZB2Vh/HFHVKw=",
+    "last_login": "2025-11-28T12:56:50.629Z",
+    "is_superuser": false,
+    "username": "nuru",
+    "first_name": "",
+    "last_name": "",
+    "email": "kikelomomustaphaolayinka@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-11-28T12:56:46.218Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8fgilrkbtrt4yx5cplnvnn5c8zvn79sl",
+  "fields": {
+    "session_data": "e30:1vOy4A:Peyj5W9JojSkRlqkOoCoWvxXHg9-2GJLmrP2eK5tGz8",
+    "expire_date": "2025-12-12T12:59:14.928Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "x35my2q8ztjbgetmf607pmcaze1ugv30",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-rMGmpOcM1u56wQHkSHFSIe6OLKWA9s3Me6uM21rz1mXJU1FnZdXhdyPkp7QBygPbfdY8t3WZSA9F77Tr61zkddndv4OKvY7asQdKxWBMSOC9IAMYH4kKhOKCA3syw6JoyJO7HZ1JwYmNiCysPl_mpTgJ:1vOy5U:fOyhJTZjCXyzLUbvNEUWI99DtnH4VyDhbwDTLzCkLnA",
+    "expire_date": "2025-12-12T13:00:36.651Z"
+  }
+},
+{
+  "model": "delivery.userprofile",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "role": "Customer"
+  }
+},
+{
+  "model": "delivery.userprofile",
+  "pk": 2,
+  "fields": {
+    "user": 3,
+    "role": "Driver"
+  }
+},
+{
+  "model": "delivery.userprofile",
+  "pk": 3,
+  "fields": {
+    "user": 4,
+    "role": "Customer"
+  }
+},
+{
+  "model": "delivery.userprofile",
+  "pk": 4,
+  "fields": {
+    "user": 5,
+    "role": "Customer"
+  }
+},
+{
+  "model": "delivery.userprofile",
+  "pk": 5,
+  "fields": {
+    "user": 6,
+    "role": "Customer"
+  }
+},
+{
+  "model": "delivery.userprofile",
+  "pk": 6,
+  "fields": {
+    "user": 7,
+    "role": "Driver"
+  }
+},
+{
+  "model": "delivery.userprofile",
+  "pk": 7,
+  "fields": {
+    "user": 1,
+    "role": "Customer"
+  }
+},
+{
+  "model": "delivery.restaurant",
+  "pk": 1,
+  "fields": {
+    "name": "Burger King",
+    "description": "Home of the Whopper",
+    "image": "",
+    "address": "123 Burger Lane"
+  }
+},
+{
+  "model": "delivery.restaurant",
+  "pk": 2,
+  "fields": {
+    "name": "Pizza Hut",
+    "description": "No One OutPizzas the Hut",
+    "image": "",
+    "address": "456 Pizza Ave"
+  }
+},
+{
+  "model": "delivery.menuitem",
+  "pk": 1,
+  "fields": {
+    "restaurant": 1,
+    "name": "Whopper",
+    "description": "Flame-grilled beef patty",
+    "price": "5.99",
+    "image": ""
+  }
+},
+{
+  "model": "delivery.menuitem",
+  "pk": 2,
+  "fields": {
+    "restaurant": 1,
+    "name": "Fries",
+    "description": "Golden crispy fries",
+    "price": "2.99",
+    "image": ""
+  }
+},
+{
+  "model": "delivery.menuitem",
+  "pk": 3,
+  "fields": {
+    "restaurant": 2,
+    "name": "Pepperoni Pizza",
+    "description": "Classic pepperoni",
+    "price": "12.99",
+    "image": ""
+  }
+},
+{
+  "model": "delivery.menuitem",
+  "pk": 4,
+  "fields": {
+    "restaurant": 2,
+    "name": "Breadsticks",
+    "description": "Garlic butter breadsticks",
+    "price": "4.99",
+    "image": ""
+  }
+},
+{
+  "model": "delivery.order",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "driver": 3,
+    "status": "Delivered",
+    "total_price": "5.99",
+    "created_at": "2025-11-28T12:48:41.545Z"
+  }
+},
+{
+  "model": "delivery.orderitem",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "menu_item": 1,
+    "quantity": 1,
+    "price_at_time": "5.99"
+  }
+}
+]
